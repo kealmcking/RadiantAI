@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b76f04920f9b684aadd8d5e91af72d7, type: 3}
+  m_Name: Rio_Schedule
+  m_EditorClassIdentifier: 
+  scheduledTasksMonday:
+  - {fileID: 11400000, guid: 5c9809bcb4718984c8d22ffca8829822, type: 2}
+  scheduledTasksTuesday: []
+  scheduledTasksWednesday:
+  - {fileID: 11400000, guid: 1d3d64ff85339e949929838d9b0b56c6, type: 2}
+  scheduledTasksThursday: []
+  scheduledTasksFriday: []
+  scheduledTasksSaturday: []
+  scheduledTasksSunday: []
