@@ -49,3 +49,5 @@
 
 All-in-all, I want to best recreate the Oblivion Radiant AI system, with some tweaks of my own, in order to create what feels like
 a truly living, breathing world.
+
+Trello Board: https://trello.com/b/9M0qQFY3/radiant-ai
