@@ -40,6 +40,11 @@
     • This is both to allow the NPC's to chat with each other, but also to allow a player
     avatar to interact with NPCs.
 
+ 4: Day/Night Cycle System
+ 
+    • This is primarily to just show the changes over time more easily. Mainly just for the aesthetic but I
+    think it will help a lot with presentation.
+
 
 
 All-in-all, I want to best recreate the Oblivion Radiant AI system, with some tweaks of my own, in order to create what feels like
