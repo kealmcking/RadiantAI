@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   taskName: Travel To Point
   type: 2
-  goals:
-  - {x: -100, y: 0, z: 100}
-  startHour: 8
+  arrivalTask: {fileID: 0}
+  goal: {x: -100, y: 0, z: -100}
+  startHour: 0
   startMinute: 40

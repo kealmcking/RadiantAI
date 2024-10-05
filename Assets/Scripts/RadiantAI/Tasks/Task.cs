@@ -7,7 +7,7 @@ namespace RadiantAI.Tasks
     [CreateAssetMenu(fileName = "Task", menuName = "RadiantAI/Tasks/TaskObject")]
     public class Task : ScriptableObject
     {
-        public enum TaskType { Eat, Sleep, Travel, Chat, Wait, Sit }
+        public enum TaskType { Eat, Sleep, Travel, Chat, Wait, Sit, Retrieve, Deliver }
         
         [Header("Task Information")]
         public string taskName;
@@ -15,7 +15,7 @@ namespace RadiantAI.Tasks
 
         public Task arrivalTask;
 
-        public Vector3 goal;
+        public Action taskAction;
         
         public int startHour;
         public int startMinute;

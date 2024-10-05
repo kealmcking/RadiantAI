@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scheduledTasksMonday:
   - {fileID: 11400000, guid: 5c9809bcb4718984c8d22ffca8829822, type: 2}
-  scheduledTasksTuesday: []
+  scheduledTasksTuesday:
+  - {fileID: 11400000, guid: 1d3d64ff85339e949929838d9b0b56c6, type: 2}
   scheduledTasksWednesday:
   - {fileID: 11400000, guid: 1d3d64ff85339e949929838d9b0b56c6, type: 2}
   scheduledTasksThursday: []

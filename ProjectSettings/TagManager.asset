@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Character
   - Interruption
+  - Target
+  - Interactable
   layers:
   - Default
   - TransparentFX

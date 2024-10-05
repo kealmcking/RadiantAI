@@ -15,6 +15,6 @@ MonoBehaviour:
   taskName: Travel To Point
   type: 2
   arrivalTask: {fileID: 11400000, guid: 856c4f7b4694a4c438cc66f909ee4a4f, type: 2}
-  goal: {x: 100, y: 0, z: 100}
+  taskAction: {fileID: 11400000, guid: 6bad98672560e83429dc5b9c510b794f, type: 2}
   startHour: 0
-  startMinute: 5
+  startMinute: 30
