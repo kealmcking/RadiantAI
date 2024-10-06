@@ -20,6 +20,7 @@ namespace RadiantAI
 
         [SerializeField] private bool isBeingInterrupted;
         [SerializeField] private bool isGathering = false;
+        [SerializeField] private bool hasStartedArrivalAction;
 
         [SerializeField] private Task currentPrimaryTask;
         [SerializeField] private GameObject currentTarget;
@@ -31,6 +32,12 @@ namespace RadiantAI
 
         [SerializeField] private GameObject torch;
         [SerializeField] private Item torchItem;
+
+        [SerializeField] private GameObject pickAxe;
+        [SerializeField] private Item pickAxeItem;
+
+        private GameObject activeObject;
+        
         private bool torchBool;
 
         [SerializeField] private float inventoryWeight;
@@ -52,6 +59,7 @@ namespace RadiantAI
             };
 
             inventory.addItemToInventory(torchItem, 1);
+            inventory.addItemToInventory(pickAxeItem, 1);
         }
 
         private void Update()
@@ -68,6 +76,8 @@ namespace RadiantAI
                     if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
                     {
                         if (currentPrimaryTask == null) return;
+
+                        if (hasStartedArrivalAction) return;
                         StartArrivalAction(currentPrimaryTask.taskAction);
                     }
                 }
@@ -88,7 +98,8 @@ namespace RadiantAI
         {
             animator.SetTrigger(currentTaskAction.actionAnimationTriggerString);
             currentTarget.GetComponent<InteractableObject>().beginInteraction(this);
-            
+            hasStartedArrivalAction = true;
+
         }
 
         public void startGatherResource(Resource _resource, int _yield, float baseGatherTime)
@@ -97,19 +108,60 @@ namespace RadiantAI
             {
                 isGathering = true;
                 StartCoroutine(gatherResource(_resource, _yield, baseGatherTime));
+                if (itemInInventory(itemToEnable(_resource)))
+                {
+                    toolToEnable(_resource).SetActive(true);
+                    torch.SetActive(false);
+                    torchBool = false;
+                }
             }
+        }
+
+        private GameObject toolToEnable(Resource _resource)
+        {
+            Resource.ResourceType type = _resource.type;
+            GameObject returnObject = null;
+            
+            switch (type)
+            {
+                case Resource.ResourceType.Ore:
+                    returnObject = pickAxe;
+                    activeObject = returnObject;
+                    break;
+                default:
+                    break;
+            }
+
+            return returnObject;
+        }
+
+        private Item itemToEnable(Resource _resource)
+        {
+            Resource.ResourceType type = _resource.type;
+            Item returnItem = null;
+            
+            switch (type)
+            {
+                case Resource.ResourceType.Ore:
+                    returnItem = pickAxeItem;
+                    break;
+                default:
+                    break;
+            }
+
+            return returnItem;
         }
         
         IEnumerator gatherResource(Resource _resource, int _yield, float baseGatherTime)
         {
             while (getInventory().currentInventoryWeight() + (_resource.itemWeight * _yield) <= getInventory().maxWeight)
             {
-            
                 yield return new WaitForSeconds(baseGatherTime);
             
                 getInventory().addItemToInventory(_resource, _yield);
             }
-
+            
+            stopAction();
             isGathering = false;
         }
         
@@ -269,6 +321,7 @@ namespace RadiantAI
                 if (inventory.inventory[i].item == torchItem)
                 {
                     torch.SetActive(set);
+                    activeObject.SetActive(!set);
                     torchBool = true;
                     return;
                 }
@@ -279,6 +332,26 @@ namespace RadiantAI
                 torch.SetActive(false);
                 torchBool = false;
             }
+        }
+
+        bool itemInInventory(Item _item)
+        {
+            bool set = false;
+            for (int i = 0; i < inventory.inventory.Count; i++)
+            {
+                if (inventory.inventory[i].item == _item)
+                {
+                    set = true;
+                }
+            }
+
+            return set;
+        }
+
+        void stopAction()
+        {
+            animator.SetTrigger("_returnIdle");
+            EquipTorch(true);
         }
     }
     
