@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1881619885114874867}
-  - component: {fileID: 8989979149300691168}
   - component: {fileID: 4073212761043135308}
-  - component: {fileID: 1057163197241824790}
-  - component: {fileID: 2780334818028191324}
+  - component: {fileID: 1451394638679496048}
   - component: {fileID: 559454169341339434}
   - component: {fileID: 5176805019250480906}
+  - component: {fileID: 8989979149300691168}
+  - component: {fileID: 1057163197241824790}
+  - component: {fileID: 2780334818028191324}
   m_Layer: 0
   m_Name: Miro
   m_TagString: Untagged
@@ -38,6 +39,72 @@ Transform:
   - {fileID: 4030596457558587952}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -150, z: 0}
+--- !u!114 &4073212761043135308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173436014413302772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbd2166ebab3194590f8fe0f8278431, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torch: {fileID: 0}
+  torchItem: {fileID: 0}
+  pickAxe: {fileID: 0}
+  pickAxeItem: {fileID: 0}
+--- !u!114 &1451394638679496048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173436014413302772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3395630bac1c4cdc993352f9ed6f06b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weeklySchedule: {fileID: 11400000, guid: 82943e11dcdef8f4f86cda5d0e1de478, type: 2}
+--- !u!114 &559454169341339434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173436014413302772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ddbd52d700ef0d4aa768e089a746fa0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxWeight: 0
+--- !u!114 &5176805019250480906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7173436014413302772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad10f2b000ec85468fa3841569e16ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strength: 0
+  intelligence: 0
+  willpower: 0
+  agility: 0
+  speed: 0
+  endurance: 0
+  personality: 0
+  luck: 0
+  health: 0
+  magic: 0
+  fatigue: 0
+  encumbrance: 0
 --- !u!195 &8989979149300691168
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -60,35 +127,6 @@ NavMeshAgent:
   m_BaseOffset: -0.02
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 3
---- !u!114 &4073212761043135308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7173436014413302772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fbd2166ebab3194590f8fe0f8278431, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  agent: {fileID: 8989979149300691168}
-  character: {fileID: 11400000, guid: 4359e0839e897cb4da388c2c62c8be66, type: 2}
-  animator: {fileID: 6993987739104829514}
-  inventory: {fileID: 0}
-  stats: {fileID: 0}
-  isBeingInterrupted: 0
-  isGathering: 0
-  hasStartedArrivalAction: 0
-  currentPrimaryTask: {fileID: 0}
-  currentTarget: {fileID: 0}
-  queuedTarget: {fileID: 0}
-  queuedTask: {fileID: 0}
-  torch: {fileID: 0}
-  torchItem: {fileID: 0}
-  pickAxe: {fileID: 0}
-  pickAxeItem: {fileID: 0}
-  inventoryWeight: 0
 --- !u!54 &1057163197241824790
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -139,43 +177,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &559454169341339434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7173436014413302772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ddbd52d700ef0d4aa768e089a746fa0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxWeight: 0
---- !u!114 &5176805019250480906
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7173436014413302772}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad10f2b000ec85468fa3841569e16ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  strength: 0
-  intelligence: 0
-  willpower: 0
-  agility: 0
-  speed: 0
-  endurance: 0
-  personality: 0
-  luck: 0
-  health: 0
-  magic: 0
-  fatigue: 0
-  encumbrance: 0
 --- !u!1001 &3487254384726203867
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2070,12 +2071,6 @@ PrefabInstance:
 --- !u!4 &4030596457558587952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 35c44a97c30e4e946a0f4d3310613b95,
-    type: 3}
-  m_PrefabInstance: {fileID: 3487254384726203867}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &6993987739104829514 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 35c44a97c30e4e946a0f4d3310613b95,
     type: 3}
   m_PrefabInstance: {fileID: 3487254384726203867}
   m_PrefabAsset: {fileID: 0}

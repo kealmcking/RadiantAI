@@ -7,10 +7,12 @@ using UnityEngine.Serialization;
 
 public class TimeManager : MonoBehaviour
 {
-    public static TimeManager instance;
+    
     public enum Day { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday }
 
     public enum TimeOfDay { Night, Dawn, Day, Dusk }
+
+    private EventBinding<TimeChangeEvent> onTimeChanged;
 
     [Header("Days / Hours / Minutes")]
     [SerializeField] private Day currentDay;
@@ -18,8 +20,9 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private int hoursPerDay;
     [SerializeField] private int timePerHour;
 
-    [SerializeField] private float currentHour;
+    [SerializeField] private int currentHour;
     [SerializeField] private int currentMinute;
+    private int lastMinute = -1;
 
     [SerializeField] private float timer;
 
@@ -27,27 +30,16 @@ public class TimeManager : MonoBehaviour
 
     [Header("Sun/Moon")] 
     [SerializeField] private Light sunLight;
-    [SerializeField] private Light moonLight;
     [SerializeField] private LightingPreset preset;
     [SerializeField] private Material daySkyBox;
     [SerializeField] private Material nightSkyBox;
 
-    
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-     
-        currentDay = Day.Monday;
+
     }
 
-    public float getCurrentHour()
+    public int getCurrentHour()
     {
         return currentHour;
     }
@@ -62,6 +54,19 @@ public class TimeManager : MonoBehaviour
     {
         timer += Time.deltaTime;
         currentMinute = (int)((timer % timePerHour) * (60f / timePerHour));
+
+        if (currentMinute != lastMinute)
+        {
+            EventBus<TimeChangeEvent>.Raise(new TimeChangeEvent()
+            {
+                timeOfDay = timeOfDay,
+                currentDay = currentDay,
+                currentHour = currentHour,
+                currentMinute = currentMinute
+            });
+
+            lastMinute = currentMinute;
+        }
 
         float fractionalHour = currentHour + (timer / timePerHour);
         float timePercent = fractionalHour / hoursPerDay;

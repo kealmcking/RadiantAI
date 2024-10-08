@@ -9,16 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b76f04920f9b684aadd8d5e91af72d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d7eb2575f0d47a1a45f4331778069aa, type: 3}
   m_Name: Rio_Schedule
   m_EditorClassIdentifier: 
-  scheduledTasksMonday:
+  mondayTasks:
   - {fileID: 11400000, guid: 5c9809bcb4718984c8d22ffca8829822, type: 2}
-  scheduledTasksTuesday:
-  - {fileID: 11400000, guid: 1d3d64ff85339e949929838d9b0b56c6, type: 2}
-  scheduledTasksWednesday:
-  - {fileID: 11400000, guid: 1d3d64ff85339e949929838d9b0b56c6, type: 2}
-  scheduledTasksThursday: []
-  scheduledTasksFriday: []
-  scheduledTasksSaturday: []
-  scheduledTasksSunday: []
+  tuesdayTasks: []
+  wednesdayTasks: []
+  thursdayTasks: []
+  fridayTasks: []
+  saturdayTasks: []
+  sundayTasks: []

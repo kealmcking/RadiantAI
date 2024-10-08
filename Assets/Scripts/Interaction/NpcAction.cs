@@ -4,7 +4,7 @@ using UnityEngine;
 
 [System.Serializable]
 [CreateAssetMenu(fileName = "Action", menuName = "RadiantAI/Actions")]
-public class Action : ScriptableObject
+public class NpcAction : ScriptableObject
 {
     [Header("Action Info")]
     public string actionName;                       // The name of the action

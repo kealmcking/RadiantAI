@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RadiantAI;
-using Unity.VisualScripting;
 
 public class InteractableObject : MonoBehaviour
 {
